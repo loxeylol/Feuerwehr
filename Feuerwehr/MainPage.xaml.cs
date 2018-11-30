@@ -12,6 +12,33 @@ namespace Feuerwehr
         public MainPage()
         {
             InitializeComponent();
+            //set binding Context of UI
+           
+            deploymentButton.BindingContext = deploymentButton;
+            buildingButton.BindingContext = buildingButton;
+            equipmentButton.BindingContext = equipmentButton;
+            vehicleButton.BindingContext = vehicleButton;
+
+            deploymentButton.Clicked += (o, e) =>
+            {
+                Navigation.PushAsync(new EinsatzPage());
+            };
+
+            buildingButton.Clicked += (o, e) =>
+            {
+
+            };
+
+            equipmentButton.Clicked += (o, e) =>
+            {
+
+            };
+
+            vehicleButton.Clicked += (o, e) =>
+            {
+
+            };
+
         }
     }
 }

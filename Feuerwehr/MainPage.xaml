@@ -1,7 +1,36 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Feuerwehr" x:Class="Feuerwehr.MainPage">
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
-    </StackLayout>
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage Title="Feuerwehr" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Feuerwehr" x:Class="Feuerwehr.MainPage">
+    
+    <Grid RowSpacing="20" ColumnSpacing="20" > 
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".5*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height=".5*"/>
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3.3*"/>
+            <ColumnDefinition Width="3.3*"/>
+            <ColumnDefinition Width="3.3*"/>
+            <ColumnDefinition Width="3.3*"/>
+            <ColumnDefinition Width="3.3*"/>
+            <ColumnDefinition Width="3.3*"/>
+            
+        </Grid.ColumnDefinitions>
+        
+        <Button Image="home.png" x:Name="buildingButton" Grid.Row="1" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.ColumnSpan="3"/>
+        <Button Image="couch.png" x:Name="vehicleButton" Grid.Row="2" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.ColumnSpan="3"/>
+        <Button Image="settings.png" x:Name="equipmentButton" Grid.Row="1" Grid.Column="3" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.ColumnSpan="3"/>
+        <Button Image="couch.png" x:Name="deploymentButton" Grid.Row="2" Grid.Column="3" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.ColumnSpan="3" />
+        <Button Image="couch.png" x:Name="homeButton" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="1" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand"/>
+        <Button Image="couch.png" x:Name="selfstudyButton" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="1" HorizontalOptions="CenterAndExpand"  VerticalOptions="FillAndExpand"/>
+        <Button Image="couch.png" x:Name="settingsButton" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="1" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand"/>
+        
+    </Grid>
+   
+        
+    
+
 </ContentPage>
