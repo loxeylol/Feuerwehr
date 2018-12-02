@@ -4,7 +4,7 @@ using System.Text;
 using SQLite;
 namespace Feuerwehr.Data
 {
-    class Woerterbuch
+    public class Woerterbuch
     {
         [PrimaryKey,AutoIncrement]
         public int Id { get; set; }

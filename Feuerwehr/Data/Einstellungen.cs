@@ -4,7 +4,7 @@ using System.Text;
 using SQLite;
 namespace Feuerwehr.Data
 {
-    class Einstellungen
+    public class Einstellungen
     {
 
         [PrimaryKey,AutoIncrement]

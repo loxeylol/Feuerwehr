@@ -13,12 +13,12 @@ namespace Feuerwehr
         {
             InitializeComponent();
             //set binding Context of UI
-           
+            
             deploymentButton.BindingContext = deploymentButton;
             buildingButton.BindingContext = buildingButton;
             equipmentButton.BindingContext = equipmentButton;
             vehicleButton.BindingContext = vehicleButton;
-
+            //main menu button listener
             deploymentButton.Clicked += (o, e) =>
             {
                 Navigation.PushAsync(new EinsatzPage());
@@ -38,6 +38,13 @@ namespace Feuerwehr
             {
 
             };
+            settingsButton.BindingContext = settingsButton;
+
+            settingsButton.Clicked += (o, e) =>
+            {
+                Navigation.PushAsync(new EinstellungenPage());
+            };
+
 
         }
     }

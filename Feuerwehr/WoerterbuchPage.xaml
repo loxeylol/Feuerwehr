@@ -3,30 +3,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Feuerwehr.WoerterbuchPage">
     <ContentPage.Content>
-        <Grid RowSpacing="20" ColumnSpacing="20" >
-
+        <Grid  >
             <Grid.RowDefinitions>
-                <RowDefinition Height=".5*"/>
-                <RowDefinition Height="4*"/>
-                <RowDefinition Height="4*"/>
-                <RowDefinition Height=".5*"/>
+                <RowDefinition Height="9*"/>
+                <RowDefinition Height="1*" />
+
             </Grid.RowDefinitions>
-
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3.3*"/>
-                <ColumnDefinition Width="3.3*"/>
-                <ColumnDefinition Width="3.3*"/>
-                <ColumnDefinition Width="3.3*"/>
-                <ColumnDefinition Width="3.3*"/>
-                <ColumnDefinition Width="3.3*"/>
 
+                <ColumnDefinition Width="3.3*"/>
+                <ColumnDefinition Width="3.3*"/>
+                <ColumnDefinition Width="3.3*"/>
             </Grid.ColumnDefinitions>
-
-            <ListView x:Name="dictionaryList" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6" Grid.RowSpan="4" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-            <Button Image="couch.png" x:Name="homeButton" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="1" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand"/>
-            <Button Image="couch.png" x:Name="selfstudyButton" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="1" HorizontalOptions="CenterAndExpand"  VerticalOptions="FillAndExpand"/>
-            <Button Image="couch.png" x:Name="settingsButton" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="1" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand"/>
-
+            
+            <ListView x:Name="dictionaryList" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+            <Image Source="menuBackground.png" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+            <Button Image="hat.png" x:Name="homeButton"  HorizontalOptions="FillAndExpand" VerticalOptions="End" Grid.Row="1" Grid.Column="0"/>
+            <Button Image="couch.png" x:Name="selfstudyButton" HorizontalOptions="FillAndExpand" VerticalOptions="End" Grid.Row="1" Grid.Column="1" />
+            <Button Image="settings.png" x:Name="settingsButton"  HorizontalOptions="FillAndExpand" VerticalOptions="End" Grid.Row="1" Grid.Column="2" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>

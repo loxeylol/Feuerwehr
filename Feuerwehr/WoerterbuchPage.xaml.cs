@@ -8,15 +8,16 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Feuerwehr.Data;
 using Feuerwehr.Layout;
+
 namespace Feuerwehr
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class WoerterbuchPage : ContentPage
 	{
-		public WoerterbuchPage ()
+		public WoerterbuchPage (string title)
 		{
 			InitializeComponent ();
-            Title = "Wörterbuch";
+            Title = title+" Wörterbuch";
             dictionaryList.BindingContext = dictionaryList;
             dictionaryList.ItemTemplate = new DataTemplate(typeof(LayoutWoerterBuchList));
             using (SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(App.DB_PATH))
@@ -29,6 +30,7 @@ namespace Feuerwehr
             {
                 if(e.SelectedItem != null)
                 {
+                    Navigation.PushAsync(new WortPage(e.SelectedItem as Woerterbuch));
                     dictionaryList.SelectedItem = null;
                 }
             };

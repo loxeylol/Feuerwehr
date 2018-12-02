@@ -17,10 +17,20 @@ namespace Feuerwehr
         public App(string DB_Path)
         {
             DB_PATH = DB_Path;
+            //move to on start?
             using (SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(DB_PATH))
             {
                 conn.DropTable<Woerterbuch>();
+                conn.DropTable<Einstellungen>();
+                conn.CreateTable<Einstellungen>();
                 conn.CreateTable<Woerterbuch>();
+                //create some basedata
+                Einstellungen settings = new Einstellungen()
+                {
+                    Language = "deutsch",
+                    FontSize = 10,
+                    Help = "erwarte keine Hilfe"
+                };
 
                 Woerterbuch word1 = new Woerterbuch()
                 {
@@ -58,6 +68,9 @@ namespace Feuerwehr
                     FormulierungGer = "Der Arzt untersucht Sie gleich",
                     FormulierungDk = "Lægen vil snart undersøge dig"
                 };
+
+                //insert data
+                conn.Insert(settings);
                 conn.Insert(word1);
                 conn.Insert(word2);
                 conn.Insert(word3);
@@ -65,7 +78,7 @@ namespace Feuerwehr
 
 
             }
-
+                //load mainpage
                 MainPage = new NavigationPage(new MainPage());
         }
 

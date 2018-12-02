@@ -55,7 +55,7 @@ namespace Feuerwehr
                     {
                         if ( e.SelectedItem != null)
                         {
-                            Navigation.PushAsync(new WoerterbuchPage());
+                            Navigation.PushAsync(new WoerterbuchPage(e.SelectedItem as string));
                             deploymentList.SelectedItem = null;
                         }
                     };
