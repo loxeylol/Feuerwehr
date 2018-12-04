@@ -26,7 +26,8 @@ namespace Feuerwehr
 
             buildingButton.Clicked += (o, e) =>
             {
-
+                //todo grant permissions
+                //Navigation.PushAsync(new WacheSinglePage());
             };
 
             equipmentButton.Clicked += (o, e) =>

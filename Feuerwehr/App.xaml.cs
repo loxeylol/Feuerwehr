@@ -2,6 +2,7 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Feuerwehr.Data;
+using Xamarin.Forms.Maps;
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Feuerwehr
 {
@@ -20,8 +21,11 @@ namespace Feuerwehr
             //move to on start?
             using (SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(DB_PATH))
             {
+                //drop data
                 conn.DropTable<Woerterbuch>();
                 conn.DropTable<Einstellungen>();
+
+                conn.CreateTable<Feuerwache>();
                 conn.CreateTable<Einstellungen>();
                 conn.CreateTable<Woerterbuch>();
                 //create some basedata
@@ -69,7 +73,23 @@ namespace Feuerwehr
                     FormulierungDk = "Lægen vil snart undersøge dig"
                 };
 
+                Feuerwache wache = new Feuerwache()
+                {
+                    Name = "Berufsfeuerwehr Flensburg",
+                    Adresse = "Munketoft 16 24937 Flensburg",
+                    Trivia ="",
+                    Strength = 25,
+                    TelNr = "0461 - 85 1111",
+                    latidude = 54.7779131,
+                    longitude = 9.4363213
+
+
+
+                };
+                wache.pos = wache.SetPosition();
+
                 //insert data
+                conn.Insert(wache);
                 conn.Insert(settings);
                 conn.Insert(word1);
                 conn.Insert(word2);
