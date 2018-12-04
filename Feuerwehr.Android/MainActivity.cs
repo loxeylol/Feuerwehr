@@ -26,9 +26,9 @@ namespace Feuerwehr.Droid
 
             base.OnCreate(savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-           
+            
             Xamarin.FormsMaps.Init(this, savedInstanceState);
-
+            /*
             RequestPermissions(new string[]
             {
                 "ACCES_FINE_LOCATION",
@@ -39,7 +39,7 @@ namespace Feuerwehr.Droid
                 "ACCESS_WIFI_STATE",
                 "INTERNET"
             }, 1);
-
+            */
             LoadApplication(new App(full_path));
         }
     }

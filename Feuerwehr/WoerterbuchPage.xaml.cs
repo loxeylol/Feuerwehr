@@ -23,6 +23,13 @@ namespace Feuerwehr
             wortSearch.BindingContext = wortSearch;
 
             wortSearch.Placeholder = "Suche nach Begriff";
+
+            //update search while tiping
+            wortSearch.TextChanged += (o, e) =>
+            {
+                searchItem(e.NewTextValue);
+            };
+            //remove this?
             wortSearch.SearchCommand = new Command(() =>
             {
                 searchItem(wortSearch.Text);
@@ -30,11 +37,12 @@ namespace Feuerwehr
            
             dictionaryList.BindingContext = dictionaryList;
             dictionaryList.ItemTemplate = new DataTemplate(typeof(LayoutWoerterBuchList));
-         
+            
                 
-                
-                    var items = conn.Table<Woerterbuch>().ToList();
-                    dictionaryList.ItemsSource = items;
+            //set default items
+            //todo filter for Einsatztyp
+            var items = conn.Table<Woerterbuch>().ToList();
+            dictionaryList.ItemsSource = items;
 
                 
            
@@ -55,8 +63,8 @@ namespace Feuerwehr
         public void searchItem(string searchTerm)
         {
            
-          
-                var searchItems = conn.Table<Woerterbuch>().Where(k => k.WordGer.Contains(searchTerm)).ToList();
+            //todo search for ger / dk / eng word
+            var searchItems = conn.Table<Woerterbuch>().Where(k => k.WordGer.ToLower().Contains(searchTerm)).ToList();
 
 
                 dictionaryList.ItemsSource = searchItems;

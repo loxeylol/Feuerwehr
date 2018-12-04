@@ -39,6 +39,7 @@ namespace Feuerwehr
             {
 
             };
+            //todo make buttons work on every page
             settingsButton.BindingContext = settingsButton;
 
             settingsButton.Clicked += (o, e) =>

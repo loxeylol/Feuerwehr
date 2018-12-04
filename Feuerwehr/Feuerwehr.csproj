@@ -32,4 +32,7 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="MenuButtonClickEvents.cs" />
+  </ItemGroup>
 </Project>

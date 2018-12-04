@@ -16,7 +16,7 @@ namespace Feuerwehr.Layout
                 HorizontalOptions = LayoutOptions.Center
                 
             };
-
+            
             //bind labels to databasepropertys
             nameLabel.SetBinding(Label.TextProperty, new Binding("WordGer"));
 
