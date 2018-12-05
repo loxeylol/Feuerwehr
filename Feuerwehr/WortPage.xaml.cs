@@ -7,11 +7,14 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Feuerwehr.Data;
+using SQLite;
 namespace Feuerwehr
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class WortPage : ContentPage
 	{
+
+        SQLiteConnection conn = new SQLiteConnection(App.DB_PATH);
 		public WortPage ()
 		{
 			InitializeComponent ();
@@ -21,14 +24,38 @@ namespace Feuerwehr
         public WortPage(Woerterbuch wort)
         {
             InitializeComponent();
-            Title = wort.WordGer;
+            var einstellungen = conn.Table<Einstellungen>().First();
             transLation1.BindingContext = transLation1;
             transLation2.BindingContext = transLation2;
             phrase.BindingContext = phrase;
-            transLation1.Text = wort.WordDk;
-            transLation2.Text = wort.WordGer;
             phrase.FontSize = Device.GetNamedSize(NamedSize.Large, phrase);
-            phrase.Text = wort.FormulierungGer;
+
+
+            if (einstellungen.Language == "deutsch")
+            {
+                Title = wort.WordGer;
+                transLation1.Text = wort.WordDk;
+                phrase.Text = wort.FormulierungDk;
+            }
+            else if(einstellungen.Language == "dansk")
+            {
+                Title = wort.WordDk;
+                transLation1.Text = wort.WordGer;
+                phrase.Text = wort.FormulierungGer;
+
+            }
+            settingsButton.BindingContext = settingsButton;
+
+            settingsButton.Clicked += (o, e) =>
+            {
+                Navigation.PushAsync(new EinstellungenPage());
+            };
+           
+
+         
+          
+
+
         }
 	}
 }

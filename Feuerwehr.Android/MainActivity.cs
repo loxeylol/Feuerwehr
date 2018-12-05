@@ -40,7 +40,10 @@ namespace Feuerwehr.Droid
                 "INTERNET"
             }, 1);
             */
+            
             LoadApplication(new App(full_path));
         }
+
+        
     }
 }

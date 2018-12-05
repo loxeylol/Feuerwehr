@@ -28,7 +28,7 @@ namespace Feuerwehr.Layout
                 HorizontalOptions = LayoutOptions.FillAndExpand
                 
             };
-            contextLabel.SetBinding(Label.TextProperty, new Binding("SituationGer"));
+            contextLabel.SetBinding(Label.TextProperty, new Binding("WordDk"));
 
             View = new StackLayout
             {

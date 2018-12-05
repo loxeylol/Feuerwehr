@@ -24,7 +24,8 @@ namespace Feuerwehr
                 //drop data
                 conn.DropTable<Woerterbuch>();
                 conn.DropTable<Einstellungen>();
-
+                conn.DropTable<Ressource>();
+                conn.CreateTable<Ressource>();
                 conn.CreateTable<Feuerwache>();
                 conn.CreateTable<Einstellungen>();
                 conn.CreateTable<Woerterbuch>();
@@ -86,9 +87,19 @@ namespace Feuerwehr
 
 
                 };
+
+                Ressource res = new Ressource()
+                {
+                    Name = "Schlauch",
+                    Einsatztyp = "Brand",
+                    Einsatzgebiet ="Boden",
+                    imageSource ="smallschlauch.png"
+
+                };
                 wache.pos = wache.SetPosition();
 
                 //insert data
+                conn.Insert(res);
                 conn.Insert(wache);
                 conn.Insert(settings);
                 conn.Insert(word1);

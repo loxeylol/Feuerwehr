@@ -12,6 +12,7 @@ namespace Feuerwehr
         public string Einsatztyp { get; set; }
         public string Einsatzgebiet { get; set; }
         public int InventarFk { get; set; }
+        public string imageSource { get; set; }
 
     }
 }

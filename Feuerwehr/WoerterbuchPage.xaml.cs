@@ -55,8 +55,15 @@ namespace Feuerwehr
                     dictionaryList.SelectedItem = null;
                 }
             };
-            
-		}
+
+            settingsButton.BindingContext = settingsButton;
+
+            settingsButton.Clicked += (o, e) =>
+            {
+                Navigation.PushAsync(new EinstellungenPage());
+            };
+
+        }
 
 
 
